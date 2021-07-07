@@ -85,7 +85,7 @@ public class RecursionMachine {
         System.out.println();
     }
 
-    protected static void mergeSort(int[] listIn, int end){
+    public static void mergeSort(int[] listIn, int end){
 
         if (end < 2){
             return;

@@ -27,24 +27,30 @@ public class Person implements Comparable<Person> {
     }
 
     @Override
+    public int compareTo(Person o){
+        if (this.name.equals(o.name)){
+            if (this.vorname.equals(o.vorname))
+                return 0;
+              else {
+                if (this.vorname.compareTo(o.vorname) < 0)
+                    return -1;
+                else
+                    return 1;
+            }
+        } else {
+            if (this.name.compareTo(o.name) < 0)
+                return -1;
+              else
+                return 1;
+        }
+    }
+
+    @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", vorname='" + vorname + '\'' +
                 '}';
-    }
-
-    @Override
-    public int compareTo(Person p)
-    {
-        if ((this.name.compareTo(p.getName()) < 0) || (this.name.compareTo(p.getName()) <= 0 && this.vorname.compareTo(p.getVorname()) < 0))
-            return -1;
-        else if(this.name.compareTo(p.getName()) == 0 && this.vorname.compareTo(p.getVorname()) == 0) {
-            return 0;
-        } else{
-            return 1;
-    }
-
     }
 }
 

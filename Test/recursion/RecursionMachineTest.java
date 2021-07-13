@@ -19,14 +19,10 @@ class RecursionMachineTest {
         assertEquals(RecursionMachine.recFakulty(1), 1);
     }
     @Test
-    public void recFaculty4(){
-        assertEquals(RecursionMachine.recFakulty(6), 720);
-    }
+    public void recFaculty4(){ assertEquals(RecursionMachine.recFakulty(6), 720); }
 
     @Test
-    public void recFakulty5(){
-        assertEquals(24, RecursionMachine.recFakulty(4));
-    }
+    public void recFakulty5(){ assertEquals(24, RecursionMachine.recFakulty(4)); }
 
     @Test
     void getFibonacci1() {
@@ -64,6 +60,30 @@ class RecursionMachineTest {
         assertEquals(4, RecursionMachine.getMin(list, 0));
     }
 
+
+    @Test
+    void gcd1() { assertEquals(1, RecursionMachine.gcd(3, 2)); }
+
+    @Test
+    void gcd2() { assertEquals(30, RecursionMachine.gcd(30, 600)); }
+
+    @Test
+    void gcd3() { assertEquals(2, RecursionMachine.gcd(10, 8)); }
+
+    @Test
+    void lcm1() { assertEquals(40, RecursionMachine.lcm(8, 10)); }
+
+    @Test
+    void lcm2() { assertEquals(300, RecursionMachine.lcm(50, 60)); }
+
+    @Test
+    void gcdIterative1() { assertEquals(1, RecursionMachine.gcdIterative(3, 2)); }
+
+    @Test
+    void gcdIterative2() { assertEquals(30, RecursionMachine.gcdIterative(30, 600)); }
+
+    @Test
+    void gcdIterative3() { assertEquals(2, RecursionMachine.gcdIterative(10, 8)); }
 
 
 }

@@ -1,5 +1,6 @@
 package recursion;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class RecursionMachine {
@@ -16,6 +17,7 @@ public class RecursionMachine {
         }
     }
 
+
     protected static int getFibonacci(int number){
 
         // smallest element
@@ -28,6 +30,7 @@ public class RecursionMachine {
             return getFibonacci(number - 1) + getFibonacci(number - 2);
         }
     }
+
 
     protected static int getMin(int[] list, int index){
 
@@ -46,6 +49,7 @@ public class RecursionMachine {
             }
         }
     }
+
 
     protected static void towersOfHanio(int height){
 
@@ -85,6 +89,7 @@ public class RecursionMachine {
         System.out.println();
     }
 
+
     public static void mergeSort(int[] listIn, int end){
 
         if (end < 2){
@@ -93,6 +98,7 @@ public class RecursionMachine {
 
             // split the given list into two smaller ones
             int middle = end / 2;
+
             int[] firstHalf = new int[middle];
             int[] secondHalf = new int[end - middle];
 
@@ -110,11 +116,11 @@ public class RecursionMachine {
             mergeSort(secondHalf, end - middle);
 
             // bring sorted lists together
-            mergeList(listIn, firstHalf, secondHalf, middle, end - middle);
+            mergeLists(listIn, firstHalf, secondHalf, middle, end - middle);
         }
     }
 
-    protected static void mergeList(int[] listIn, int[] fistHalf, int[] secondHalf, int begin, int end){
+    protected static void mergeLists(int[] listIn, int[] fistHalf, int[] secondHalf, int begin, int end){
         // indexes
         int i = 0, j = 0, n = 0;
 
@@ -134,4 +140,112 @@ public class RecursionMachine {
             listIn[n++] = secondHalf[j++];
         }
     }
+
+
+    protected static int gcd(int a, int b) {
+        if (a == b) {
+            return a;
+        } else {
+            if (a > b) return gcd(a - b, b);
+            else return gcd(a, b - a);
+        }
+    }
+
+    protected static int gcdIterative(int a, int b){
+        while (a != b){
+            if (a < b) b -= a;
+            else a -= b;
+        }
+        return a;
+    }
+
+
+    protected static int lcm(int a, int b) {
+        return a * b / gcd(a, b);
+    }
+
+/*
+    protected static void queen(int size){
+        Boolean[][] board = new Boolean[size][size];
+
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; j++){
+                board[i][j] = false;
+            }
+        }
+
+        placeQueen(1, board, 0, -1);
+
+        printBoard(board);
+    }
+
+    private static void printBoard(Boolean[][] board){
+        for (int i = 0; i < board.length; i++){
+            for (int j = 0; j < board.length; j++){
+                if (board[i][j]){
+                    System.out.print("[Q]");
+                } else {
+                    System.out.print("[ ]");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    private static boolean placeQueen(int number, Boolean[][] board, int x, int y){
+        if (number == board.length){
+            return true;
+        } else {
+            board[x][y] = true;
+
+            if (placeQueen(number + 1, board))
+
+            do{
+                board[x][y] = false;
+                do {
+                    if (y < board.length - 1) {
+                        y++;
+                    } else {
+                        x++;
+                        y = 0;
+                    }
+                } while (!validPosition(board, x, y));
+                board[x][y] = true;
+            }while (!placeQueen(number + 1, board, x, y));
+            return true;
+        }
+    }
+
+    private static boolean validPosition(Boolean[][] board, int x, int y){
+        for (int i = 0; i < board.length; i++){
+            // horizontal and vertical
+            if (board[x][i] || board [i][y]){
+                return false;
+            }
+            // diagonal
+            if (i > 1 && i < board.length - 1)
+            if (x + i < board.length && y + i < board.length){
+                if (board[x + i][y + i]){
+                    return false;
+                }
+            }
+            if (x - i >= 0 && y + i < board.length){
+                if (board[x - i][y + i]){
+                    return false;
+                }
+            }
+            if (x + i < board.length && y - i >= 0){
+                if (board[x + i][y - i]){
+                    return false;
+                }
+            }
+            if (x - i >= 0 && y - i >= 0){
+                if (board[x - i][y - i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+*/
 }

@@ -94,4 +94,40 @@ public class LinkedList<T> {
         return false;
     }
 
+
+
+    // look at this; FLO
+
+    /*
+    public boolean delete(int value) {
+        Node tempnode;
+        Node previousNode;
+        boolean deleted = false;
+        if (firstNode.getValue() == value && firstNode != null) {
+            firstNode = firstNode.getNextNode();
+            deleted = true;
+        } else {
+            previousNode = firstNode;
+            tempnode = firstNode.getNextNode();
+            while (tempnode != null) {
+                if (tempnode.getNextNode() == null && tempnode.getValue() == value) {
+                    tempnode = null;
+                    previousNode.setNextNode(null);
+                    return true;
+                }else {
+                    if (tempnode.getValue() == value) {
+                        previousNode.setNextNode(tempnode.getNextNode());
+                        tempnode = null;
+                        return true;
+                    } else {
+                        previousNode = tempnode;
+                        tempnode = tempnode.getNextNode();
+                    }
+                }
+            }
+        }
+        return deleted;
+    }
+    */
+
 }
